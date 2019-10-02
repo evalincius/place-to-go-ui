@@ -1,0 +1,19 @@
+:host ::ng-deep .carousel-inner {
+	.carousel-item {
+		&.active {
+      a{
+        text-align: center;
+        img {
+          display: block;
+          line-height: 1;
+          margin: 0 auto !important;
+        }
+      }
+		}
+	}
+}
+
+:host ::ng-deep .carousel-control-next,
+:host ::ng-deep .carousel-control-prev {
+    filter: invert(100%);
+}

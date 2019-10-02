@@ -1,0 +1,53 @@
+<ngb-carousel #carousel interval="5000" [pauseOnHover]="pauseOnHover" (slide)="onSlide($event)">
+    <ng-template ngbSlide *ngFor="let region of regions; index as i">
+      <app-map [region]=region></app-map>
+    </ng-template>
+  </ngb-carousel>
+  
+  <hr>
+  
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="pauseOnHover" [(ngModel)]="pauseOnHover">
+    <label class="form-check-label" for="pauseOnHover">Pause on hover</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="unpauseOnArrow" [(ngModel)]="unpauseOnArrow">
+    <label class="form-check-label" for="unpauseOnArrow">Unpause when clicking on arrows</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="pauseOnIndicator" [(ngModel)]="pauseOnIndicator">
+    <label class="form-check-label" for="pauseOnIndicator">Pause when clicking on navigation indicator</label>
+  </div>
+  <button type="button" (click)="togglePaused()" class="btn btn-outline-dark btn-sm">
+    {{paused ? 'Cycle' : 'Pause' }}
+  </button>
+  
+  
+  
+  <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" #myDiv>
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+            <app-map class="d-block w-100" [region]='150'></app-map>
+        </div>
+        <div class="carousel-item">
+            <app-map class="d-block w-100" [region]='150'></app-map>
+        </div>
+        <div class="carousel-item">
+            <app-map [region]='150'></app-map>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div> -->
+  
