@@ -1,0 +1,27 @@
+// :host ::ng-deep .carousel-inner {
+// 	.carousel-item {
+// 		&.active {
+//       a{
+//         text-align: center;
+//         outline: 0 !important;
+//         img {
+//           display: block;
+//           line-height: 1;
+//           margin: 0 auto !important;
+//         }
+//       }
+// 		}
+// 	}
+// }
+
+:host ::ng-deep .carousel-control-next,
+:host ::ng-deep .carousel-control-prev,
+:host ::ng-deep .carousel-indicators {
+    filter: invert(100%);
+}
+
+:host ::ng-deep .carousel { 
+  &:focus{
+    outline: 0 !important;
+  } 
+}

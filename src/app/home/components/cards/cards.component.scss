@@ -1,0 +1,14 @@
+.card {
+  overflow: hidden;
+
+}
+.card:hover img {
+  transform: scale(1.1);
+  transition: all .2s linear;
+}
+.box {
+    margin: 20px;
+    background-color: green;
+    height: 500px;
+    width: 500px;
+}
