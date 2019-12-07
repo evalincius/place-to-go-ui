@@ -1,0 +1,46 @@
+<app-header></app-header>
+<div class="container">
+  <form #form="ngForm">
+    <div class="form-group">
+      <label for="name">Place Name</label>
+      <input type="text" class="form-control" ngModel name="name" id="name">
+    </div>
+
+    <div class="form-row" [ngbCollapse]="!isCollapsed">
+      <div class="form-group col-md-5">
+        <label for="inputLong">Longitude</label>
+        <input type="text" class="form-control" id="inputLong">
+      </div>
+      <div class="form-group col-md-5">
+        <label for="inputLat">Latitude</label>
+        <input type="text" class="form-control" id="inputLat">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="lookup">.</label>
+        <button id="lookup" type="button" class="form-control btn btn-primary"  (click)="isCollapsed = !isCollapsed"
+                  [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+            LookUp
+          </button>
+      </div>
+    </div>
+    <div id="collapseExample" [ngbCollapse]="isCollapsed">
+      <p2g-geocoding (geocodingTriggered)="onGeocodeToggled($event)"></p2g-geocoding>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary" (click)="createNewLocation(form);">Submit</button>
+  </form>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+

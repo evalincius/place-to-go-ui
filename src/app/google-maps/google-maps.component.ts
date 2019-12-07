@@ -1,6 +1,6 @@
 /// <reference types="@types/googlemaps" />
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {MapStyleConfig} from "./map-style-config";
+import {MapStyleConfig} from "../shared/service/map-style-config";
 import StyledMapType = google.maps.StyledMapType;
 import MapOptions = google.maps.MapOptions;
 import LatLng = google.maps.LatLng;
@@ -10,9 +10,7 @@ import {CountryCode} from "./model/country-code";
 @Component({
   selector: 'p2g-google-maps',
   templateUrl: './google-maps.component.html',
-  styleUrls: ['./google-maps.component.scss'],
-  providers:[MapStyleConfig]
-
+  styleUrls: ['./google-maps.component.scss']
 })
 export class GoogleMapsComponent implements OnInit, AfterViewInit {
 

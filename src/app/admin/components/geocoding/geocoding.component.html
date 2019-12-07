@@ -1,0 +1,11 @@
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Panko, Glasgow" aria-label="Panko, Glasgow" aria-describedby="button-addon2" [(ngModel)]="address">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button" (click)="close()">Manual</button>
+    <button class="btn btn-outline-secondary" type="button" (click)="onSearchGeolocationClicked()">Search</button>
+  </div>
+</div>
+<div #mapContainer id="map"></div>
+
+
+
