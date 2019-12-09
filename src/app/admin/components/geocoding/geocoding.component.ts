@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {MapStyleConfig} from "../../../shared/service/map-style-config";
-import {CountryCode} from "../../../google-maps/model/country-code";
+import {CountryCode} from "../../../shared/model/country-code";
 import StyledMapType = google.maps.StyledMapType;
 import MapOptions = google.maps.MapOptions;
 import LatLng = google.maps.LatLng;

@@ -1,13 +1,16 @@
-<div class="card-deck"   *ngFor="let cardGroup of cardGroups" style="margin: 20px;">
+<div class="container">
+  <div class="card-deck"   *ngFor="let cardGroup of cardGroups" style="margin: 20px;">
     <div class="card col-4" *ngFor="let cardObj of cardGroup">
-    <img class="card-img-top" src="{{cardObj.imageUrl}}" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">{{cardObj.title}}</h5>
-            <p class="card-text">{{cardObj.description}}</p>
-            <p class="card-text"><small class="text-muted">{{cardObj.lastUpdated}}</small></p>
-        </div>
+      <img class="card-img-top" src="{{cardObj.imageUrl}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{cardObj.title}}</h5>
+        <p class="card-text">{{cardObj.description}}</p>
+        <p class="card-text"><small class="text-muted">{{cardObj.lastUpdated}}</small></p>
+      </div>
     </div>
+  </div>
 </div>
+
 <!-- <div class="card-columns"  style="margin: 20px;">
     <div class="card" *ngFor="let cardObj of cards; index as i">
     <img class="card-img-top" src="{{cardObj.imageUrl}}" alt="Card image cap">

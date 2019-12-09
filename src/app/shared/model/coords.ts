@@ -1,4 +1,4 @@
-interface Coordinates {
+interface Coords {
   lat: number;
   lng: number;
 }

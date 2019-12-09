@@ -6,7 +6,7 @@ import MapOptions = google.maps.MapOptions;
 import LatLng = google.maps.LatLng;
 import Marker = google.maps.Marker;
 import {MapsService} from "./service/maps.service";
-import {CountryCode} from "./model/country-code";
+import {CountryCode} from "../shared/model/country-code";
 @Component({
   selector: 'p2g-google-maps',
   templateUrl: './google-maps.component.html',
@@ -48,7 +48,7 @@ export class GoogleMapsComponent implements OnInit, AfterViewInit {
   }
 
   // An array with the coordinates of the boundaries of Bucaramanga, extracted manually from the GADM database
-  bucaramangaDelimiters: Coordinates[];
+  bucaramangaDelimiters: Coords[];
 
   ngAfterViewInit() {
     this.mapInitializer();
