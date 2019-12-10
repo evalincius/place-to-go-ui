@@ -15,20 +15,20 @@
   <div class="row mt-4">
     <div class="col">
 <!--      <div class="card card-body">-->
-        <form autocomplete="off" class="row" method="get" action="html/pages/all-spaces.html">
+        <form class="row" #f="ngForm" (ngSubmit)="f.form.valid &&onFindPlace(f)" novalidate>
           <div class="col-12 col-lg-5">
             <div class="form-group mb-lg-0">
               <div class="input-group input-group-lg mb-lg-0">
                 <div class="input-group-prepend">
                       <span class="input-group-text">
-                        <i class="fa fa-flag">
-
-                        </i>
+                        <i class="fa fa-flag"></i>
                       </span>
                 </div>
-                <input id="search-location" type="text" class="form-control autocomplete"
-                       placeholder="Search country" tabindex="1" required="">
+                <input class="form-control" ngModel name="country" placeholder="Search country" type="text" tabindex="1" required>
               </div>
+<!--              <div *ngIf="f.submitted && f.controls.country.invalid" class="cross-validation-error-message alert alert-danger">-->
+<!--                Country is required.-->
+<!--              </div>-->
             </div>
           </div>
           <div class="col-12 col-lg-4">
@@ -38,7 +38,11 @@
                       <i class="fa fa-building"></i>
                     </span>
               </div>
-              <input class="form-control datepicker" placeholder="Select city" type="text" required=""></div>
+              <input class="form-control" ngModel name="city" placeholder="Select city" type="text" required>
+            </div>
+<!--            <div *ngIf="f.submitted && f.controls.city.invalid" class="cross-validation-error-message alert alert-danger">-->
+<!--              City is required.-->
+<!--            </div>-->
           </div>
           <div class="col-12 col-lg-3">
             <button class="btn btn-lg btn-primary btn-block mt-3 mt-md-0 animate-up-2" type="submit">Find a place</button>
@@ -48,3 +52,4 @@
     </div>
   </div>
 </div>
+<p2g-cards [places]="places" ></p2g-cards>
