@@ -10,11 +10,11 @@ import {PlaceService} from "./service/place.service";
   providers: [PlaceService]
 })
 export class PlacesComponent implements OnInit {
-
   places: Place[];
   constructor(private placeService: PlaceService) { }
 
   ngOnInit() {
+    this.placeService.getAllPlaces().subscribe(places => this.places = places);
   }
 
   onFindPlace(form: NgForm) {

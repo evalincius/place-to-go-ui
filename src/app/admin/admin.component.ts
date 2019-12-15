@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {PlaceService} from "./service/place.service";
 import {CountryService} from "./service/country.service";
+import GeocoderResult = google.maps.GeocoderResult;
+import LatLng = google.maps.LatLng;
 
 @Component({
   selector: 'p2g-admin',
@@ -14,12 +16,14 @@ export class AdminComponent implements OnInit {
   constructor(private placeService: PlaceService, private countryService: CountryService) { }
   availableCountries: Country[];
   coordinates: Coords;
+  address: string;
   ngOnInit() {
     this.loadAvailableCountries();
     this.coordinates = {
       lat: undefined,
       lng: undefined
     };
+    this.address = '';
   }
 
   createNewLocation(form: NgForm) {
@@ -33,17 +37,19 @@ export class AdminComponent implements OnInit {
       name: name,
       city: city,
       countryCode: countryCode,
-      coordinates: {lat: lat, lng: lng}
+      coordinates: {lat: lat, lng: lng},
+      address: this.address
     }
 
     this.placeService.createPlace(place).subscribe(key => form.reset());
   }
 
-  onGeocodeToggled(marker: google.maps.Marker) {
-    if(marker) {
-      console.log(marker.getPosition());
-      this.coordinates.lat = marker.getPosition().lat();
-      this.coordinates.lng = marker.getPosition().lng();
+  onGeocodeToggled(geocoderResult: GeocoderResult) {
+    if(geocoderResult) {
+      const latLang: LatLng = geocoderResult.geometry.location;
+      this.coordinates.lat = latLang.lat();
+      this.coordinates.lng = latLang.lng();
+      this.address = geocoderResult.formatted_address;
     } else {
       this.isCollapsed = true;
     }

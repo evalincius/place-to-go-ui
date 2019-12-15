@@ -11,4 +11,7 @@ export class PlaceService {
   getPlaces(countryCode: CountryCode, city: string): Observable<Place[]> {
     return this.http.get<Place[]>(`${this.baseUrl}/list/${countryCode}/${city}`);
   }
+  getAllPlaces(): Observable<Place[]> {
+    return this.http.get<Place[]>(`${this.baseUrl}/list`);
+  }
 }

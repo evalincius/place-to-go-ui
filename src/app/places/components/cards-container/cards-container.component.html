@@ -1,0 +1,26 @@
+<div class="container">
+  <div *ngIf="places" class="row list-box">
+<!--    <aside class="filter-box">-->
+<!--      <div class="card p-2 mt-3 mb-3">-->
+<!--        Filter placeholder-->
+<!--      </div>-->
+<!--      <div class="card p-2 mt-3 mb-3">-->
+<!--        Filter placeholder-->
+<!--      </div>-->
+<!--      <div class="card p-2 mt-3 mb-3">-->
+<!--        Filter placeholder-->
+<!--      </div>-->
+<!--      <div class="card p-2 mt-3 mb-3">-->
+<!--        Filter placeholder-->
+<!--      </div>-->
+<!--    </aside>-->
+
+    <div class="card-box">
+      <div *ngFor="let place of places">
+        <p2g-card [place]=place></p2g-card>
+      </div>
+    </div>
+
+  </div>
+
+</div>

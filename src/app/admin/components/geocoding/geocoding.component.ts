@@ -4,6 +4,7 @@ import {CountryCode} from "../../../shared/model/country-code";
 import StyledMapType = google.maps.StyledMapType;
 import MapOptions = google.maps.MapOptions;
 import LatLng = google.maps.LatLng;
+import GeocoderResult = google.maps.GeocoderResult;
 
 @Component({
   selector: 'p2g-geocoding',
@@ -11,7 +12,7 @@ import LatLng = google.maps.LatLng;
   styleUrls: ['./geocoding.component.scss']
 })
 export class GeocodingComponent implements OnInit, AfterViewInit {
-  @Output() geocodingTriggered = new EventEmitter<any>();
+  @Output() geocodingTriggered = new EventEmitter<GeocoderResult>();
 
   constructor(private mapStyleConfig: MapStyleConfig) { }
 
@@ -68,7 +69,7 @@ export class GeocodingComponent implements OnInit, AfterViewInit {
           position: results[0].geometry.location
         });
 
-        this.geocodingTriggered.emit(marker);
+        this.geocodingTriggered.emit(results[0]);
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
       }

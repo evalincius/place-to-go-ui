@@ -3,4 +3,6 @@ interface Place {
   city: string;
   name: string;
   coordinates: Coords;
+  imageId?: string;
+  address: string;
 }
