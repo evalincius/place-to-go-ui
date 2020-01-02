@@ -1,20 +1,24 @@
 <div class="container">
-  <form #form="ngForm">
-    <div class="form-group">
-      <label for="name">Place Name *</label>
-      <input type="text" class="form-control" ngModel name="name" id="name" required>
-    </div>
 
-    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Country *</label>
-    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" ngModel name="country" required>
-      <option selected>Select Country...</option>
-      <option *ngFor="let country of availableCountries" [value]="country.countryCode">{{country.name}}</option>
-    </select>
 
-    <div class="form-group">
-      <label for="city">City</label>
-      <input type="text" class="form-control" ngModel name="city" id="city">
-    </div>
+  <p2g-stepper></p2g-stepper>
+
+<!--  <form #form="ngForm">-->
+<!--    <div class="form-group">-->
+<!--      <label for="name">Place Name *</label>-->
+<!--      <input type="text" class="form-control" ngModel name="name" id="name" required>-->
+<!--    </div>-->
+
+<!--    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Country *</label>-->
+<!--    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" ngModel name="country" required>-->
+<!--      <option selected>Select Country...</option>-->
+<!--      <option *ngFor="let country of availableCountries" [value]="country.countryCode">{{country.name}}</option>-->
+<!--    </select>-->
+
+<!--    <div class="form-group">-->
+<!--      <label for="city">City</label>-->
+<!--      <input type="text" class="form-control" ngModel name="city" id="city">-->
+<!--    </div>-->
 
 <!--    <div class="form-row" [ngbCollapse]="!isCollapsed">-->
 <!--      <div class="form-group col-sm-5">-->
@@ -37,15 +41,16 @@
 <!--    <div id="collapseExample" [ngbCollapse]="isCollapsed">-->
 <!--      <p2g-geocoding (geocodingTriggered)="onGeocodeToggled($event)"></p2g-geocoding>-->
 <!--    </div>-->
-    <p2g-geocoding (geocodingTriggered)="onGeocodeToggled($event)"></p2g-geocoding>
+<!--    <p2g-geocoding (geocodingTriggered)="onGeocodeToggled($event)"></p2g-geocoding>-->
 
-    <div class="form-group">
-      <label for="address">Address</label>
-      <input type="text" class="form-control" [(ngModel)]="address" name="address" id="address">
-    </div>
+<!--    <p2g-image-cropper></p2g-image-cropper>-->
+<!--    <div class="form-group">-->
+<!--      <label for="address">Address</label>-->
+<!--      <input type="text" class="form-control" [(ngModel)]="address" name="address" id="address">-->
+<!--    </div>-->
 
-    <button type="submit" class="btn btn-primary" [disabled]="!form.valid" (click)="createNewLocation(form)">Submit</button>
-  </form>
+<!--    <button type="submit" class="btn btn-primary" [disabled]="!form.valid" (click)="createNewLocation(form)">Submit</button>-->
+<!--  </form>-->
 </div>
 
 

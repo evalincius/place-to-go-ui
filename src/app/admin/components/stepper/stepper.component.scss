@@ -1,0 +1,9 @@
+@media (max-width: 520px) {
+  .bs-stepper-header {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    margin: 0;
+  }
+}

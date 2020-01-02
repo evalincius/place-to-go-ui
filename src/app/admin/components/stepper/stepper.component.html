@@ -1,0 +1,57 @@
+<div id="stepper1" class="bs-stepper">
+  <div class="bs-stepper-header">
+    <div class="step" data-target="#place-details">
+      <button class="step-trigger">
+        <span class="bs-stepper-circle">1</span>
+        <span class="bs-stepper-label">Details</span>
+      </button>
+    </div>
+    <div class="line"></div>
+    <div class="step" data-target="#test-l-2">
+      <button class="step-trigger">
+        <span class="bs-stepper-circle">2</span>
+        <span class="bs-stepper-label">Location</span>
+      </button>
+    </div>
+    <div class="line"></div>
+    <div class="step" data-target="#test-l-3">
+      <button class="step-trigger">
+        <span class="bs-stepper-circle">3</span>
+        <span class="bs-stepper-label">Image</span>
+      </button>
+    </div>
+    <div class="line"></div>
+    <div class="step" data-target="#test-l-4">
+      <button class="step-trigger">
+        <span class="bs-stepper-circle">4</span>
+        <span class="bs-stepper-label">Image</span>
+      </button>
+    </div>
+  </div>
+  <div class="bs-stepper-content">
+    <form [formGroup]="placeForm" (ngSubmit)="onSubmit()">
+      <div id="place-details" class="content">
+        <div class="form-group">
+          <p2g-place-details (formReady)="formInitialized('place-details', $event)"></p2g-place-details>
+        </div>
+        <button (click)="next()" class="btn btn-primary">Next</button>
+      </div>
+      <div id="test-l-2" class="content">
+        <div class="form-group">
+          <p2g-place-location (formReady)="formInitialized('place-location', $event)"></p2g-place-location>
+        </div>
+        <button (click)="next()" class="btn btn-primary">Next</button>
+      </div>
+      <div id="test-l-3" class="content text-center">
+        <div class="form-group">
+          <p2g-image-cropper (formReady)="formInitialized('place-image', $event)"></p2g-image-cropper>
+        </div>
+        <button (click)="next()" class="btn btn-primary">Next</button>
+      </div>
+      <div id="test-l-4" class="content text-center">
+        <p2g-card [place]=place></p2g-card>
+        <button type="submit" class="btn btn-primary mt-5">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

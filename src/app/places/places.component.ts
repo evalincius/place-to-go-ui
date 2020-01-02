@@ -14,7 +14,8 @@ export class PlacesComponent implements OnInit {
   constructor(private placeService: PlaceService) { }
 
   ngOnInit() {
-    this.placeService.getAllPlaces().subscribe(places => this.places = places);
+    this.placeService.
+    getAllPlaces().subscribe(places => this.places = places);
   }
 
   onFindPlace(form: NgForm) {

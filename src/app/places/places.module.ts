@@ -14,6 +14,7 @@ import { CardsContainerComponent } from "./components/cards-container/cards-cont
     FormsModule,
     CommonModule,
     PlacesRoutingModule
-  ]
+  ],
+  exports: [CardComponent]
 })
 export class PlacesModule { }
