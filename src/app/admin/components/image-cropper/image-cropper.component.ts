@@ -10,7 +10,6 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 export class ImageCropperComponent implements OnInit {
   @Output() formReady = new EventEmitter<FormGroup>()
   imageChangedEvent: any = '';
-  croppedImage: any = '';
   placeImageForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
@@ -18,7 +17,8 @@ export class ImageCropperComponent implements OnInit {
 
   ngOnInit() {
     this.placeImageForm = this.fb.group({
-      img: null
+      imageURL: null,
+      blob:null
     });
 
     // Emit the form group to the father to do whatever it wishes
@@ -29,8 +29,10 @@ export class ImageCropperComponent implements OnInit {
     this.imageChangedEvent = event;
   }
   imageCropped(event: ImageCroppedEvent) {
-    this.croppedImage = event.base64;
-    this.placeImageForm.setValue({img: event.base64})
+    this.placeImageForm.setValue({
+      imageURL: event.base64,
+      blob: event.file
+    });
   }
   imageLoaded() {
     // show cropper

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Stepper from "bs-stepper";
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {PlaceService} from "../../service/place.service";
 
 @Component({
   selector: 'p2g-stepper',
@@ -9,19 +10,38 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 })
 export class StepperComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private placeService: PlaceService) {}
 
   private stepper: Stepper;
   placeForm: FormGroup;
   place: Place;
-
+  showToast = false;
 
   next() {
     this.stepper.next();
   }
 
-  onSubmit() {
-    return false;
+  submit() {
+    const placeImage = this.placeForm.value['place-image'];
+
+    if(placeImage.blob) {
+      this.placeService.uploadFile(placeImage.blob).subscribe((metadata: FileMetadata) => {
+        this.place.imageId = metadata.id;
+        this.placeService.createPlace(this.place).subscribe(key => this.resetForm());
+      });
+    }
+  }
+
+  resetForm(){
+    const placeDetails = this.placeForm.controls['place-details'];
+    const placeLocation = this.placeForm.controls['place-location'];
+    const placeImage = this.placeForm.controls['place-image'];
+    this.placeForm.reset();
+    placeImage.reset();
+    placeLocation.reset();
+    placeDetails.reset();
+    this.stepper.to(0);
+    this.showToast = true;
   }
 
   ngOnInit() {
@@ -41,7 +61,6 @@ export class StepperComponent implements OnInit {
     });
     stepper.addEventListener('show.bs-stepper', (event: any) => {
       // You can call prevent to stop the rendering of your step
-      // event.preventDefault()
       if(event.detail.indexStep == 3){
         this.updatePlace();
       }
@@ -54,14 +73,13 @@ export class StepperComponent implements OnInit {
     const placeDetails: PlaceDetails = this.placeForm.value['place-details'];
     const placeLocation: PlaceLocation = this.placeForm.value['place-location'];
     const placeImage = this.placeForm.value['place-image'];
-    console.log(this.placeForm);
     this.place = {
       name : placeDetails.name,
       countryCode : placeLocation.countryCode,
       city : placeLocation.city,
       coordinates : placeLocation.coordinates,
       address : placeLocation.address,
-      imageURL : placeImage.img
+      imageURL : placeImage.imageURL
     }
   }
 

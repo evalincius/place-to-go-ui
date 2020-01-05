@@ -18,13 +18,17 @@
         <form class="row" #f="ngForm" (ngSubmit)="f.form.valid &&onFindPlace(f)" novalidate>
           <div class="col-12 col-lg-5">
             <div class="form-group mb-lg-0">
+
               <div class="input-group input-group-lg mb-lg-0">
                 <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="fa fa-flag"></i>
-                      </span>
+                    <span class="input-group-text">
+                      <i class="fa fa-flag"></i>
+                    </span>
                 </div>
-                <input class="form-control" ngModel name="country" placeholder="Search country" type="text" tabindex="1" required>
+                <select class="custom-select" [(ngModel)]="countryPlaceholder" name="country">
+                  <option [value]="undefined" disabled selected> Select Country... </option>
+                  <option *ngFor="let country of availableCountries" [value]="country.countryCode">{{country.name}}</option>
+                </select>
               </div>
 <!--              <div *ngIf="f.submitted && f.controls.country.invalid" class="cross-validation-error-message alert alert-danger">-->
 <!--                Country is required.-->

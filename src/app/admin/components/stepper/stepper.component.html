@@ -1,3 +1,10 @@
+<!--<ngb-toast *ngIf="showToast" header="Click my close icon →" [autohide]="true">-->
+<!--  If you close me, I will automatically re-appear after a few seconds.-->
+<!--</ngb-toast>-->
+
+<ngb-alert *ngIf="showToast" [type]="'success'" (close)="showToast = false">Place was uploaded Successfully</ngb-alert>
+
+
 <div id="stepper1" class="bs-stepper">
   <div class="bs-stepper-header">
     <div class="step" data-target="#place-details">
@@ -29,7 +36,7 @@
     </div>
   </div>
   <div class="bs-stepper-content">
-    <form [formGroup]="placeForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="placeForm">
       <div id="place-details" class="content">
         <div class="form-group">
           <p2g-place-details (formReady)="formInitialized('place-details', $event)"></p2g-place-details>
@@ -50,7 +57,7 @@
       </div>
       <div id="test-l-4" class="content text-center">
         <p2g-card [place]=place></p2g-card>
-        <button type="submit" class="btn btn-primary mt-5">Submit</button>
+        <button type="submit" class="btn btn-primary mt-5" (click)="submit()">Submit</button>
       </div>
     </form>
   </div>

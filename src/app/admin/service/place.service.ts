@@ -15,4 +15,10 @@ export class PlaceService {
   createPlace(place: Place): Observable<string> {
     return this.http.post<string>(this.baseUrl, place, {responseType: 'text' as 'json'});
   }
+
+  uploadFile(fileToUpload: Blob): Observable<FileMetadata>{
+    let formData = new FormData();
+    formData.append('file', fileToUpload, 'file');
+    return this.http.post<FileMetadata>(`${this.baseUrl}/upload-file`, formData);
+  }
 }
