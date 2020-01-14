@@ -1,0 +1,31 @@
+<div class="d-none d-lg-block sticky">
+  <ng-template [ngTemplateOutlet]="filter"></ng-template>
+</div>
+<div class="d-lg-none mb-3 ">
+  <div class="text-right">
+    <button type="button" class="btn btn-link" (click)="toggleShowHide()">{{isHidden ? 'Show' : 'Hide'}} Filter</button>
+  </div>
+  <ng-template *ngIf="!isHidden" [ngTemplateOutlet]="filter"></ng-template>
+</div>
+
+<ng-template #filter >
+  <div class="card p-2 mb-3">
+    <div class="d-flex justify-content-between">
+      <span>Filter</span>
+      <i [ngClass]="isCollapsed ? 'fa fa-plus' : 'fa fa-close'" (click)="toggleExpandCollapse()"></i>
+    </div>
+    <div id="collapseExample" [ngbCollapse]="isCollapsed">
+      <ngb-rating  [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=selected"></ngb-rating>
+      <pre>
+        Rating: <b>{{hovered}}</b>
+      </pre>
+      <hr>
+      <input type="range" min="1" max="10" value="50" id="myRange">
+
+    </div>
+  </div>
+</ng-template>
+
+
+
+

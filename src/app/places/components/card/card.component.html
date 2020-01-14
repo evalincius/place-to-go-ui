@@ -1,6 +1,7 @@
 <div class="card animate flex-md-row border-soft mb-4 no-gutters">
+<!--  <img src="{{place.imageURL}}" onerror="this.onerror=null; this.src='place.jpg'" alt="image" class="col-md-6 col-lg-6 card-img-top space-image-lg">-->
   <img src="{{place.imageURL}}" onerror="this.onerror=null; this.src='place.jpg'" alt="image" class="col-md-6 col-lg-6 card-img-top space-image-lg">
-  <div class="card-body d-flex flex-column justify-content-between col-auto p-4">
+  <div class="card-body d-flex flex-column justify-content-between p-4">
     <h4 class="font-weight-normal mb-0">{{place.name? place.name : 'There will be Place name'}}</h4>
     <div class="post-meta">
       <span class="small lh-120"><i class="fa fa-map-marker mr-2"></i>{{place.address ? place.address : 'There will be an Address'}}</span>

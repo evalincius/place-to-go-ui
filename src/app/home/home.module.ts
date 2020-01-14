@@ -15,6 +15,7 @@ import { GeoChartsModule } from "../geo-charts/geo-charts.module";
 @NgModule({
   declarations: [HomeComponent, CarouselComponent, CardsComponent],
   imports: [
+    HeaderModule,
     CommonModule,
     HomeRoutingModule,
     Ng2GoogleChartsModule,

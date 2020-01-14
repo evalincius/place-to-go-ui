@@ -1,3 +1,5 @@
+<app-header></app-header>
+
 <ngb-carousel #carousel interval="5000" [pauseOnHover]="pauseOnHover" (slide)="onSlide($event)">
     <ng-template ngbSlide *ngFor="let region of regions; index as i">
 <!--      <app-map [region]=region></app-map>-->

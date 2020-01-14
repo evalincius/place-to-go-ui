@@ -13,6 +13,11 @@
 .search {
   margin-top: 19rem;
 }
+
+:host ::ng-deep .navbar {
+  background-color: transparent !important;
+}
+
 @media (min-width: 576px) {
   .section-xl {
     position: absolute;

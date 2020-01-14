@@ -19,6 +19,7 @@ import {PlacesModule} from "../places/places.module";
 @NgModule({
   declarations: [AdminComponent, GeocodingComponent, ImageCropperComponent, StepperComponent, PlaceDetailsComponent, PlaceLocationComponent],
   imports: [
+    HeaderModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,

@@ -1,0 +1,15 @@
+.sticky {
+  position: sticky;
+  top: 10px;
+}
+
+ngb-rating {
+  &:focus{
+    outline: 0 !important;
+  }
+}
+
+.slide-container {
+  width: 100%;
+  height: 50px;
+}
