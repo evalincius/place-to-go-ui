@@ -1,0 +1,10 @@
+.animate {
+  transition: 0.3s;
+}
+
+.animate:hover {
+  transform: scale(1.03);
+}
+.card {
+  align-items: flex-start;
+}

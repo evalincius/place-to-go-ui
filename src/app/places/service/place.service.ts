@@ -5,7 +5,7 @@ import {CountryCode} from "../../shared/model/country-code";
 
 @Injectable()
 export class PlaceService {
-  readonly baseUrl = 'api/v1/place';
+  readonly baseUrl = 'api/v1/places';
   constructor(private http: HttpClient) { }
 
   getPlaces(countryCode: CountryCode, city: string): Observable<Place[]> {

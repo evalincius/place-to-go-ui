@@ -1,0 +1,28 @@
+<nav class="navbar navbar-dark bg-dark navbar-static-top">
+  <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <form (ngSubmit)="onSubmit()" #searchForm="ngForm" class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search-criteria" [(ngModel)]="searchCriteria">
+    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-2" style="border-right: 1px solid rgba(0,0,0,0.1); background-color: beige">
+      <p2g-filter></p2g-filter>
+    </div>
+    <div class="col-12 col-lg-10" style="background-color: floralwhite">
+
+      <div class="card-group">
+        <div *ngFor="let place of places" class="col-12 col-md-6 col-xl-4">
+          <p2g-card [place]=place></p2g-card>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

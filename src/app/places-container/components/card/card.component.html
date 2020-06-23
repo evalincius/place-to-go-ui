@@ -1,0 +1,12 @@
+<div class="animate card m-2">
+  <img src="{{place.imageURL}}" onerror="this.onerror=null; this.src='place.jpg'" alt="image" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title">{{place.name? place.name : 'There will be Place name'}}</h5>
+    <ngb-rating  [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=selected"></ngb-rating>
+    <h6 class="card-subtitle mb-2 text-muted">
+      <span class="small lh-120"><i class="fa fa-map-marker mr-2"></i>{{place.address ? place.address : 'There will be an Address'}}</span>
+    </h6>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  </div>
+</div>
+
