@@ -3,7 +3,9 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Filter} from "../models/filter";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class PlaceService {
   readonly baseUrl = 'api/v1/places';
   constructor(private http: HttpClient) { }

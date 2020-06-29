@@ -1,10 +1,10 @@
-<div class="card p-2 mb-3">
-  <div class="d-flex justify-content-between">
-    <span>Filter</span>
-    <i [ngClass]="isCollapsed ? 'fa fa-plus' : 'fa fa-close'" (click)="toggleExpandCollapse()"></i>
-  </div>
-  <div id="collapseExample" [ngbCollapse]="isCollapsed">
-    <ngb-rating  [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=selected" [max]="5"></ngb-rating>
-    <pre>Rating: <b>{{hovered}}</b></pre>
-  </div>
-</div>
+<p2g-base-filter [filterName]="'Rating'" [filterBody]="filterBody" [filterHeader]="filterHeader"></p2g-base-filter>
+
+<ng-template #filterHeader>
+  <ngb-rating  [(rate)]="selected" [max]="5"></ngb-rating>
+</ng-template>
+
+<ng-template #filterBody>
+  <ngb-rating  [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=selected" [max]="5"></ngb-rating>
+  <pre>Rating: <b>{{hovered}}</b></pre>
+</ng-template>

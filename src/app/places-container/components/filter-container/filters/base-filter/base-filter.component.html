@@ -1,0 +1,12 @@
+<div class="card p-2 m-2">
+  <div class="d-flex justify-content-between">
+    <p>{{filterName}}</p>
+    <ng-container *ngIf="!isCollapsed else filterHeader"></ng-container>
+    <i [ngClass]="isCollapsed ? 'fa fa-plus' : 'fa fa-close'" (click)="toggleExpandCollapse()"></i>
+  </div>
+  <div id="collapseExample" [ngbCollapse]="isCollapsed">
+    <ng-container *ngTemplateOutlet="filterBody"></ng-container>
+  </div>
+</div>
+
+

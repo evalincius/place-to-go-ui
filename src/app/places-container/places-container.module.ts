@@ -9,10 +9,11 @@ import {FilterComponent} from "./components/filter-container/filter.component";
 import {FormsModule} from "@angular/forms";
 import { CountryFilterComponent } from './components/filter-container/filters/country-filter/country-filter.component';
 import { RatingFilterComponent } from './components/filter-container/filters/rating-filter/rating-filter.component';
+import { BaseFilterComponent } from './components/filter-container/filters/base-filter/base-filter.component';
 
 
 @NgModule({
-  declarations: [PlacesContainerComponent, CardComponent, FilterComponent, CountryFilterComponent, RatingFilterComponent],
+  declarations: [PlacesContainerComponent, CardComponent, FilterComponent, CountryFilterComponent, RatingFilterComponent, BaseFilterComponent],
   imports: [
     NgbModule,
     CommonModule,

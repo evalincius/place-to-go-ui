@@ -1,15 +1,18 @@
 <div class="d-none d-lg-block sticky">
   <ng-template [ngTemplateOutlet]="filter"></ng-template>
 </div>
-<div class="d-lg-none mb-3 ">
+<div class="d-lg-none mb-3">
   <div class="text-right">
     <button type="button" class="btn btn-link" (click)="toggleShowHide()">{{isHidden ? 'Show' : 'Hide'}} Filter</button>
   </div>
   <ng-template *ngIf="!isHidden" [ngTemplateOutlet]="filter"></ng-template>
 </div>
 
-<ng-template #filter >
-  <p2g-rating-filter class="p-2 mb-3"></p2g-rating-filter>
+<ng-template #filter>
+  <div class="col-12">
+    <p2g-rating-filter></p2g-rating-filter>
+    <p2g-country-filter (filterChanged)="onFilterChanged($event)"></p2g-country-filter>
+  </div>
 </ng-template>
 
 

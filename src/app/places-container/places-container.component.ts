@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PlaceService} from "./services/place.service";
 import {FilterTypeEnum} from "./models/filter-type.enum";
-import {CountryCode} from "../shared/model/country-code";
+import {Filter} from "./models/filter";
 
 @Component({
   selector: 'p2g-places-container',
   templateUrl: './places-container.component.html',
-  styleUrls: ['./places-container.component.scss'],
-  providers: [PlaceService]
+  styleUrls: ['./places-container.component.scss']
 })
 export class PlacesContainerComponent implements OnInit {
   public places: Place[];
   public isCollapsed = false;
   searchCriteria: string = "";
+  filters: Filter[] = [];
 
 
   constructor(private placeService: PlaceService) { }
@@ -23,11 +23,18 @@ export class PlacesContainerComponent implements OnInit {
   }
 
   onSubmit() {
-    this.applySearchCriteria(this.searchCriteria);
+    this.applySearchCriteriaAndFilters();
   }
 
-  private applySearchCriteria(searchCriteria: string){
+  private applySearchCriteriaAndFilters(){
+    let searchAndFilter: Filter[] = this.filters.map(obj => ({...obj}));
+    searchAndFilter.push({type: FilterTypeEnum.SEARCH, value: this.searchCriteria});
+    this.placeService.searchPlaces(searchAndFilter).subscribe(places => this.places = places)
+  }
 
-    this.placeService.searchPlaces([{type: FilterTypeEnum.SEARCH, value: searchCriteria}]).subscribe(places => this.places = places)
+  onFilterChanged(filters: Filter[]) {
+
+    this.filters = filters;
+    this.applySearchCriteriaAndFilters();
   }
 }

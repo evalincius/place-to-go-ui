@@ -8,16 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class RatingFilterComponent implements OnInit {
   selected = 0;
   hovered = 0;
-  isCollapsed = true;
-
   constructor() { }
 
   ngOnInit() {
   }
-
-
-  toggleExpandCollapse() {
-    this.isCollapsed = !this.isCollapsed;
-  }
-
 }

@@ -1,1 +1,17 @@
-<p>WORKS</p>
+<p2g-base-filter [filterName]="'Country'" [filterBody]="filterBody" [filterHeader]="filterHeader"></p2g-base-filter>
+
+<ng-template #filterHeader>
+
+</ng-template>
+
+<ng-template #filterBody>
+  <form #form="ngForm">
+    <div class="form-check" *ngFor="let country of countryList">
+      <input class="form-check-input" type="checkbox" value="" id="defaultCheck" [(ngModel)]="selectedCountries[country.countryCode]" name="{{country.countryCode}}">
+      <label class="form-check-label" for="defaultCheck">
+        {{country.name}}
+      </label>
+    </div>
+  </form>
+
+</ng-template>
